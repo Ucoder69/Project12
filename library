@@ -1,7 +1,7 @@
 import re
 
 def striing(clause: str):
-    string=input(f"input your {clause}: ")
+    string=input(f"input your full {clause}: ").title()
     if not isinstance(string, str):
         raise TypeError("expected a string")
     return string
@@ -20,10 +20,8 @@ def get_pwhole_no(prompt:str):
             s = int(input(f"Enter {prompt}: "))
         except ValueError:
             raise ValueError(f"Error: Please enter a valid number for {prompt.lower()}")
-
         if s < 0:
             raise ValueError(f"Error: {prompt} must be a positive whole number")
-
         return s
 
 class library:
@@ -45,23 +43,25 @@ class library:
     def Class(cls):
         return get_pwhole_no("Class")
     
-    
-    
-name=library.name()
-print(name)
-try:
-    cls= library.Class()
-    print(cls)
-except ValueError as e:
-    print(e)
-try:
-    section=library.section()
-    print(section)
-except ValueError as e:
-    print(e)
-try:
-    roll= library.roll()
-    print(roll)
-except ValueError as e:
-    print(e)
+def get_input():  
+    name=library.name()
+    try:
+        clss= library.Class()
+    except ValueError as e:
+        print(e)
+    try:
+        section=library.section()
+    except ValueError as e:
+        print(e)
+    try:
+        roll= library.roll()
+    except ValueError as e:
+        print(e)
+    return [name,clss,section,roll,0]
 
+def Id():
+    while True:
+        id=int(input("Enter Your Id: "))
+        if 1000<id<9999:
+            break
+    return id
