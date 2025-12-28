@@ -1,10 +1,23 @@
-import library as li
 import mysql.connector
 import random
 
-def register(name, class_, sec, roll):
+def namecheck(str_value: str):
+    if p:=str_value.strip().split(" "):
+        Name=p[0]
+        Surname=p[-1]
+        middle="".join(p[1:-1]) if len(str_value)>2 else ""
+        # print(Name.title())
+        return [Name, middle, Surname]
+    else:
+        print("you have entered something wrong")
+    
+def register(sname, class_, sec, roll):
     id_=random.randint(1000,99999)
-    name, name , surname =name
+    
+    try:
+        name, mname , surname = namecheck(sname) # type: ignore
+    except:
+        name, mname , surname =''
     mydb = mysql.connector.connect(
     host="localhost",
     user="your_username",
@@ -34,8 +47,7 @@ def register(name, class_, sec, roll):
     mydb.commit()
     cursor.close()
     mydb.close()
-    return id_
+    return name, id_
 
-register(name, class_, sec, roll)
 
 
