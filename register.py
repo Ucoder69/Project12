@@ -3,7 +3,7 @@ import mysql.connector
 import random
 
 def register(name, class_, sec, roll):
-    idr=random.randint(1000,99999)
+    id_=random.randint(1000,99999)
     name, name , surname =name
     mydb = mysql.connector.connect(
     host="localhost",
@@ -34,7 +34,8 @@ def register(name, class_, sec, roll):
     mydb.commit()
     cursor.close()
     mydb.close()
-    return id
+    return id_
 
 register(name, class_, sec, roll)
+
 
