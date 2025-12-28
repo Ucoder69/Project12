@@ -57,7 +57,7 @@ def get_input():
         roll= library.roll()
     except ValueError as e:
         print(e)
-    return [name,clss,section,roll,0]
+    return [name,clss,section,roll]
 
 def Id():
     while True:

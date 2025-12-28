@@ -1,30 +1,42 @@
 import library as li
-import csv 
-import os
-import ast
+import mysql.connector
 
 name=li.namecheck(li.striing("Name"))
 if name:
     nam=name[0]
 else: 
     nam=''
-bk=''
 
-# sql connector here!
-id=li.Id()
-with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "students.csv"), "r", newline='')as file:
-        reads= csv.reader(file,skipinitialspace=True)
-        flag=0
-        try:
-            for read in reads:
-                fname = ast.literal_eval(read[0])
-                if fname[0]==nam and read[4]==str(id):
-                    print("login succesfull")
-                    print(f"welcome, {fname[0]}!")
-                    bk=str(read[5])
-                    flag=1
-                    break
-        except EOFError:
-            print("This user credentials doesnt exists! (try relogging in or registering)")
-        if flag!=1:
-            print("This user credentials doesnt exists! (try relogging in or registering)")
+id=int(input("enter your id:"))
+
+def login(nam, id):
+    mydb = mysql.connector.connect(
+    host="localhost",
+    user="your_username",
+    password="your_password",
+    database="library"  
+    )
+    cursor = mydb.cursor()
+    cursor.execute(f"SELECT 1 FROM registry WHERE name = '{nam}' AND id={id} LIMIT 1")
+    exists = cursor.fetchone() is not None
+    
+    if exists:
+        print(f"welcome, {nam}!") #printing welcome - change this as you want subh
+        cursor.execute(
+        f"SELECT bc, book FROM books WHERE name = '{nam}' AND id = {id}" )
+        data = cursor.fetchone()
+        cursor.close()
+        mydb.close()
+        if data:
+            bc, book= data
+        else:
+            bc=book=None       
+        return bc, book
+    else:
+        cursor.close()
+        mydb.close()
+        print("credentials are not found")
+        return None
+    
+# the data here we got is the book-count as bc, book(if), nam and id. use this for get_book and etc, there exists a separate check_bc for same purpose but you can remove if you want
+# ~sup 28th dec
