@@ -1,10 +1,6 @@
-import library as li 
+# import library as li 
 import login as lg
 import mysql.connector
-
-name=lg.nam
-id=lg.id
-book=...
 
 def check_bc(id, name):
     mydb = mysql.connector.connect(
@@ -58,9 +54,10 @@ def remove_book(name,id):
     mydb.close()
     
    
-if check_bc(name,id)==0:
-    add_book(name,book,id)
-else:
-    remove_book(name, id)
+# if check_bc(name,id)==0:
+#     add_book(name,book,id)
+# else:
+#     remove_book(name, id)
     
+
 # force users to use check bc after every use of add_book and remove_book for latest data on their activities
