@@ -34,6 +34,7 @@ def register(name, class_, sec, roll):
     mydb.commit()
     cursor.close()
     mydb.close()
+    return id
 
+register(name, class_, sec, roll)
 
-register()
