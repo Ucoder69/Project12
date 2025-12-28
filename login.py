@@ -30,6 +30,8 @@ def login(nam, id):
         print("credentials are not found")
         return None
     
-# the data here we got is the book-count as bc, book(if), nam and id. use this for get_book and etc, there exists a separate check_bc for same purpose but you can remove if you want
+# the data here we got is the book-count as bc, book(if), nam and id. local save bc and book in var.
+#use this for get_book and etc, there exists a separate check_bc for same purpose but you can remove if you want
 
 # ~sup 28th dec
+
