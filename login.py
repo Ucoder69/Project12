@@ -1,4 +1,4 @@
-import library as li
+# import library as li
 import mysql.connector
 
 def login(nam, id):
@@ -34,4 +34,5 @@ def login(nam, id):
 #use this for get_book and etc, there exists a separate check_bc for same purpose but you can remove if you want
 
 # ~sup 28th dec
+
 
