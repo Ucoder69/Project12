@@ -1,14 +1,6 @@
 import library as li
 import mysql.connector
 
-name=li.namecheck(li.striing("Name"))
-if name:
-    nam=name[0]
-else: 
-    nam=''
-
-id=int(input("enter your id:"))
-
 def login(nam, id):
     mydb = mysql.connector.connect(
     host="localhost",
@@ -39,4 +31,5 @@ def login(nam, id):
         return None
     
 # the data here we got is the book-count as bc, book(if), nam and id. use this for get_book and etc, there exists a separate check_bc for same purpose but you can remove if you want
+
 # ~sup 28th dec
