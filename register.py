@@ -10,44 +10,40 @@ def namecheck(str_value: str):
         return [Name, middle, Surname]
     else:
         print("you have entered something wrong")
-    
-def register(sname, class_, sec, roll):
+        
+def register(sname :str , class_, sec, roll):
     id_=random.randint(1000,99999)
-    
     try:
         name, mname , surname = namecheck(sname) # type: ignore
     except:
         name, mname , surname =''
-    mydb = mysql.connector.connect(
-    host="localhost",
-    user="your_username",
-    password="your_password",
-    database="library"
-)
+#     mydb = mysql.connector.connect(
+#     host="localhost",
+#     user="your_username",
+#     password="your_password",
+#     database="library"
+# )
 
-    cursor = mydb.cursor()
-    cursor.execute(
-    """
-    INSERT INTO students (id, name, mname, surname, class, sec, roll)
-    VALUES (%s, %s, %s, %s, %s, %s, %s)
-    """,
-    (id_, name, mname, surname, class_, sec, roll)
-)
+#     cursor = mydb.cursor()
+#     cursor.execute(
+#     """
+#     INSERT INTO students (id, name, mname, surname, class, sec, roll)
+#     VALUES (%s, %s, %s, %s, %s, %s, %s)
+#     """,
+#     (id_, name, mname, surname, class_, sec, roll)
+# )
 
-    mydb.commit()
+#     mydb.commit()
 
-    cursor.execute(
-    """
-    INSERT INTO books (id, name, bc, book)
-    VALUES (%s, %s, 0, '')
-    """,
-    (id_, name)
-)
+#     cursor.execute(
+#     """
+#     INSERT INTO books (id, name, bc, book)
+#     VALUES (%s, %s, 0, '')
+#     """,
+#     (id_, name)
+# )
 
-    mydb.commit()
-    cursor.close()
-    mydb.close()
+#     mydb.commit()
+#     cursor.close()
+#     mydb.close()
     return name, id_
-
-
-

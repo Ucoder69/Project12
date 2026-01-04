@@ -41,6 +41,5 @@ def create_db():
     cursor.close()
     mydb.close()
 
-create_db()
 
 # run this just after the app starts no matter who
