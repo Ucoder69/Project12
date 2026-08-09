@@ -15,7 +15,17 @@ Using:
 On a glance by in built functions used for safekeep.
 
 ## USER
-...
+
+1. Users can register themselves and login to the dashboard.
+2. Students can check if they already rented a book. If not,
+3. then they can "add book" which is renting. Else,
+4. users can "remove book" give back the book
+
+## ROADMAP
+
+1. A system where users get automatically charge(variable/free) a fixed charge every month(variable) for using library as fee.
+2. A manual way to charge(fine) a particular user for a reason(in a text prompt) which is required for transparency.
+
 
 ## CONTRIBUTORS
 
